@@ -2,5 +2,8 @@ This repository will contain the open source samsung replenish (SPH-M580) kernel
 
 Commit Notes (most recent first, oldest at bottom):
 
+Commit: Fix fsr.ko load issue, add ext4 support,  and make code compilable.
+  --> Fix issue causing fsr.ko not to load.  Also added support for ext4.  Kernel will not load on the Samsung Replenish.
+
 Commit: Initial rev - identical to samsung opensource download
   --> This commit adds all the source code exactly as it came from the samsung open source website.  This is equivalent to release FA19 (gingerbread, with security update) on their website.  Note the files committed under this commit will not build as is.  Future commits will address this.

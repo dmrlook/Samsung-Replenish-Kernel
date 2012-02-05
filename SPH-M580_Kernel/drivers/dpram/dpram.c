@@ -62,10 +62,10 @@
 #include <linux/wakelock.h>
 
 #include "dpram.h"
-/* DGS //open
-#include "../fsr/Inc/FSR.h"
-#include "../fsr/Inc/FSR_BML.h"
-#include "../fsr/Inc/FSR_LLD_4K_OneNAND.h"
+//* DGS //open
+#include "./fsr/FSR.h"
+#include "./fsr/FSR_BML.h"
+#include "./fsr/FSR_LLD_4K_OneNAND.h"
 // hsil*/
 //#include "smd_private.h"
 #include "../../arch/arm/mach-msm/smd_private.h"
@@ -288,7 +288,7 @@ static void res_ack_tasklet_handler(unsigned long data);
 static void fmt_rcv_tasklet_handler(unsigned long data);
 static void raw_rcv_tasklet_handler(unsigned long data);
 
-/* [BML functions for DGS //open
+// [BML functions for DGS //open
 INT32   (*bml_open)(UINT32        nVol, UINT32        nFlag);
 VOID    (*bml_acquireSM)(UINT32        nVol);
 INT32   (*ond_4k_read)(UINT32 nDev, UINT32 nPbn, UINT32 nPgOffset, UINT8 *pMBuf, FSRSpareBuf *pSBuf, UINT32 nFlag);
@@ -297,7 +297,6 @@ EXPORT_SYMBOL(bml_open);
 EXPORT_SYMBOL(bml_acquireSM);
 EXPORT_SYMBOL(ond_4k_read);
 EXPORT_SYMBOL(bml_release);
-/*/ 
 
 static DECLARE_TASKLET(fmt_send_tasklet, fmt_rcv_tasklet_handler, 0);
 static DECLARE_TASKLET(raw_send_tasklet, raw_rcv_tasklet_handler, 0);
