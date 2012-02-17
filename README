@@ -2,6 +2,9 @@ This repository will contain the open source samsung replenish (SPH-M580) kernel
 
 Commit Notes (most recent first, oldest at bottom):
 
+Commit: Addition of smartassV2 and inetractive governors
+  --> Added the smartassV2 and interactive governors.  Selected smartassV2 as the default.
+
 Commit: Fix fsr.ko load issue, add ext4 support,  and make code compilable.
   --> Fix issue causing fsr.ko not to load.  Also added support for ext4.  Kernel will not load on the Samsung Replenish.
 
