@@ -2,6 +2,9 @@ This repository will contain the open source samsung replenish (SPH-M580) kernel
 
 Commit Notes (most recent first, oldest at bottom):
 
+Commit: Updates for interactive governor
+  --> Addition of additional files for interactive governor.
+
 Commit: Addition of smartassV2 and inetractive governors
   --> Added the smartassV2 and interactive governors.  Selected smartassV2 as the default.
 
