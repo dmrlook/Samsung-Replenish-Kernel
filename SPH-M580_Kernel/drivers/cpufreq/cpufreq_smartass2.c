@@ -12,7 +12,7 @@
 * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 * GNU General Public License for more details.
 *
-* Author: Erasmux
+* Author: Erasmux, modified for replenish by dmrlook
 *
 * Based on the interactive governor By Mike Chan (mike@android.com)
 * which was adaptated to 2.6.29 kernel by Nadlabak (pavel@doshaska.net)
@@ -36,6 +36,11 @@
 #include <linux/earlysuspend.h>
 
 
+// For the samsung replenish:
+// Info pulled from replenish from: /sys/devices/system/cpu/cpu0/cpufreq
+#define MAX_CPU_FREQ 600000
+#define MIN_CPU_FREQ 122880
+
 /******************** Tunable parameters: ********************/
 
 /*
@@ -43,7 +48,7 @@
 * towards the ideal frequency and slower after it has passed it. Similarly,
 * lowering the frequency towards the ideal frequency is faster than below it.
 */
-#define DEFAULT_AWAKE_IDEAL_FREQ 518400
+#define DEFAULT_AWAKE_IDEAL_FREQ 480000
 static unsigned int awake_ideal_freq;
 
 /*
@@ -52,7 +57,7 @@ static unsigned int awake_ideal_freq;
 * that practically when sleep_ideal_freq==0 the awake_ideal_freq is used
 * also when suspended).
 */
-#define DEFAULT_SLEEP_IDEAL_FREQ 352000
+#define DEFAULT_SLEEP_IDEAL_FREQ MIN_CPU_FREQ
 static unsigned int sleep_ideal_freq;
 
 /*
@@ -101,7 +106,7 @@ static unsigned long down_rate_us;
 * The frequency to set when waking up from sleep.
 * When sleep_ideal_freq=0 this will have no effect.
 */
-#define DEFAULT_SLEEP_WAKEUP_FREQ 99999999
+#define DEFAULT_SLEEP_WAKEUP_FREQ 320000
 static unsigned int sleep_wakeup_freq;
 
 /*
@@ -862,6 +867,6 @@ destroy_workqueue(down_wq);
 
 module_exit(cpufreq_smartass_exit);
 
-MODULE_AUTHOR ("Erasmux");
+MODULE_AUTHOR ("dmrlook");
 MODULE_DESCRIPTION ("'cpufreq_smartass2' - A smart cpufreq governor");
 MODULE_LICENSE ("GPL");
